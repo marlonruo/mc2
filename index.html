@@ -1,0 +1,721 @@
+<!doctype html>
+<head>
+<title>MC</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
+<link href="css/estilos2.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript">
+  var directionDisplay;
+  var directionsService = new google.maps.DirectionsService();
+  var map;
+
+  function initialize() {
+    directionsDisplay = new google.maps.DirectionsRenderer();
+    var acapulco = new google.maps.LatLng(19.393664,-99.174598);
+
+    var myOptions = {
+      zoom:18,
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+	  mapTypeControl: false,     
+	 // mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
+	  navigationControl: true, 
+	  navigationControlOptions: {         
+	  style: google.maps.NavigationControlStyle.SMALL,         
+	  position: google.maps.ControlPosition.TOP_RIGHT     
+	  },     
+
+	  streetViewControl: false, 
+      center: acapulco
+    }
+
+    map = new google.maps.Map(document.getElementById("mapa"), myOptions);
+    
+	directionsDisplay.setMap(map);
+
+	panorama = map.getStreetView();
+    panorama.setPosition(acapulco);
+    panorama.setPov({
+       heading: -120,     
+	   pitch: 0,     
+	   zoom: 1
+	  }
+    );
+
+	var image = 'imagenes/punto.png';
+	var pin = 'imagenes/pin.png';   
+	
+	
+	var myLatLng2 = new google.maps.LatLng(19.395664,-99.177598);   
+	var beachMarker2 = new google.maps.Marker({       
+	position: myLatLng2,       
+	map: map,       
+	icon: image   
+	}); 
+	
+	var myLatLng3 = new google.maps.LatLng(19.391664,-99.173598);   
+	var beachMarker3 = new google.maps.Marker({       
+	position: myLatLng3,       
+	map: map,       
+	icon: image   
+	});
+	
+	var myLatLng4 = new google.maps.LatLng(19.391664,-99.178598);   
+	var beachMarker4 = new google.maps.Marker({       
+	position: myLatLng4,       
+	map: map,       
+	icon: image   
+	}); 
+	
+	var myLatLng = new google.maps.LatLng(19.393664,-99.174598);   
+	var beachMarker = new google.maps.Marker({       
+	position: myLatLng,       
+	map: map,       
+	icon: pin   
+	}); 
+	
+  }
+  
+  
+  var directionDisplay2;
+  var directionsService2 = new google.maps.DirectionsService();
+  var map2;
+  
+  function initialize2() {
+    directionsDisplay2 = new google.maps.DirectionsRenderer();
+    var acapulco = new google.maps.LatLng(19.393664,-99.174598);
+
+    var myOptions = {
+      zoom:18,
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+	  mapTypeControl: false,     
+	 // mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
+	  navigationControl: true, 
+	  navigationControlOptions: {         
+	  style: google.maps.NavigationControlStyle.SMALL,         
+	  position: google.maps.ControlPosition.TOP_RIGHT     
+	  },     
+
+	  streetViewControl: false, 
+      center: acapulco
+    }
+
+    map2 = new google.maps.Map(document.getElementById("mapa2"), myOptions);
+
+	directionsDisplay2.setMap(map2);
+
+
+	panorama = map.getStreetView();
+    panorama.setPosition(acapulco);
+    panorama.setPov({
+       heading: -120,     
+	   pitch: 0,     
+	   zoom: 1
+	  }
+    );
+
+	var image = 'imagenes/punto.png';
+	var pin = 'imagenes/pin.png';   
+	
+	
+	var myLatLng2 = new google.maps.LatLng(19.395664,-99.177598);   
+	var beachMarker2 = new google.maps.Marker({       
+	position: myLatLng2,       
+	map: map2,       
+	icon: image   
+	}); 
+	
+	var myLatLng3 = new google.maps.LatLng(19.391664,-99.173598);   
+	var beachMarker3 = new google.maps.Marker({       
+	position: myLatLng3,       
+	map: map2,       
+	icon: image   
+	});
+	
+	var myLatLng4 = new google.maps.LatLng(19.391664,-99.178598);   
+	var beachMarker4 = new google.maps.Marker({       
+	position: myLatLng4,       
+	map: map2,       
+	icon: image   
+	}); 
+	
+	var myLatLng = new google.maps.LatLng(19.393664,-99.174598);   
+	var beachMarker = new google.maps.Marker({       
+	position: myLatLng,       
+	map: map2,       
+	icon: pin   
+	}); 
+	
+  }
+</script>
+</head>
+<body>
+
+	
+    <div id="contiene_aplicacion">
+    
+    
+    
+        <div id="aplicacion"><!--aplicacion-->
+          
+          
+          <div id="seccion1" style="display:none1"><!--seccion1-->
+              <div id="camara"></div>
+                <div class="textos" style="top:91px; width:100%;">ESCANEAR TARJETA</div>
+<div class="textos" style="top:339px; width:100%; font-size:28px">Coloque la tarjeta frente a la camara<br>para escanear.</div>
+                
+<div class="textos" style="top:506px; width:100%; font-size:28px; color:#777777">O bien selecciona con que tipo<br>de tarjeta cuentas.</div>
+<div id="linea"></div>
+
+                <div id="op1" class="op" style="margin-left:-300px;">Platinum</div>
+				<div id="op2" class="op" style="margin-left:-100px;">World Elite</div>
+				<div id="op3" class="op" style="margin-left:100px;">Otras</div>
+
+            
+                <div id="digitos">
+                  <div id="digitos_campo"><input name="" type="text" class="campo" required placeholder="Ingresa los primeros 6 dígitos de tu tarjeta" maxlength="6"></div>
+                  <div id="digitos_boton">Enviar</div>
+              </div>
+              <div id="boton_notengo">No cuento con tarjeta</div>
+          </div><!--fin seccion1--> 
+          
+          
+          
+          <div id="seccion2" style="display:none"><!--seccion1-->
+       	    <div class="top">
+			  <div class="menu"></div>
+              <div class="titulo" style="margin-left:-250px">Promociones</div>
+              <div class="logo"></div>
+		    </div>
+              <div id="mapa"></div>
+            <div id="ver_todas">Ver todas las promociones cercanas</div>
+              <div class="textos2" style="width:100%; text-align:left; padding-left:40px; color:#424242; margin-top:40px;">CATEGORIAS</div>
+              <div id="productos" style="margin-top:40px; overflow:hidden">
+              	<div style="width:2000px; margin:auto">
+
+                    <div class="producto">
+                          <div class="imagen">
+                                <div class="trans">Descubriendo la ciudad</div>
+                          </div>
+                          <div class="descri">Maecenas fauci bus mollis inter dum.</div>
+                    </div>
+                    <div class="producto">
+                          <div class="imagen">
+                                <div class="trans">Descubriendo la ciudad</div>
+                          </div>
+                          <div class="descri">Maecenas fauci bus mollis inter dum.</div>
+                    </div>
+                    <div class="producto">
+                          <div class="imagen">
+                                <div class="trans">Descubriendo la ciudad</div>
+                          </div>
+                          <div class="descri">Maecenas fauci bus mollis inter dum.</div>
+                    </div>
+                    <div class="producto">
+                          <div class="imagen">
+                                <div class="trans">Descubriendo la ciudad</div>
+                          </div>
+                          <div class="descri">Maecenas fauci bus mollis inter dum.</div>
+                    </div>
+                    <div class="producto">
+                          <div class="imagen">
+                                <div class="trans">Descubriendo la ciudad</div>
+                          </div>
+                          <div class="descri">Maecenas fauci bus mollis inter dum.</div>
+                    </div>
+                    <div class="producto">
+                          <div class="imagen">
+                                <div class="trans">Descubriendo la ciudad</div>
+                          </div>
+                          <div class="descri">Maecenas fauci bus mollis inter dum.</div>
+                    </div>
+                    <div class="producto">
+                          <div class="imagen">
+                                <div class="trans">Descubriendo la ciudad</div>
+                          </div>
+                          <div class="descri">Maecenas fauci bus mollis inter dum.</div>
+                    </div>
+
+                </div>
+              </div>
+              <div class="textos2" style="width:100%; text-align:left; padding-left:40px; color:#424242; margin-top:40px;">POPULARES</div>
+              
+              <div class="popular" style="margin-top:40px">
+              	<div class="popular_imagen"></div>
+                <div class="popular_texto">
+                	<div style="font-size:24px; color:#ff9a00">Aeromexico</div>		
+                    <div>Comparte tu viaje con aeromexico</div>
+                    <div style="font-size:22px; color:#9a9a9a; line-height:24px; margin-top:10px">Etiam porta sem malesuada magna mollis euismod. Donec id elit non mi porta gravida at eget metus.</div>
+                </div>
+                <div class="popular_mas pop"></div>
+              </div>
+              
+              <!--//////////////////////////////////////////////////////-->
+              
+              <div class="popular">
+              	<div class="popular_imagen"></div>
+                <div class="popular_texto">
+                	<div style="font-size:24px; color:#ff9a00">Aeromexico</div>		
+                    <div>Comparte tu viaje con aeromexico</div>
+                    <div style="font-size:22px; color:#9a9a9a; line-height:24px; margin-top:10px">Etiam porta sem malesuada magna mollis euismod. Donec id elit non mi porta gravida at eget metus.</div>
+                </div>
+                <div class="popular_mas pop"></div>
+              </div>
+              
+              
+              
+          </div><!--fin seccion2--> 
+          
+          
+          
+          <div id="seccion3" style="display:none"><!--seccion3-->
+          		
+                
+                <div class="top">
+                  <div class="menu"></div>
+                  <div class="titulo" style="margin-left:-250px">Categorias</div>
+                  <div class="logo"></div>
+                </div>
+                
+                
+              	<div id="mapa2"></div>
+              	<div class="categorias">
+                	<div id="cat1">Restaurantes<div id="fle1" class="flechita" style="display:block"></div></div>
+                    <div id="cat2">Entretenimiento<div id="fle2" class="flechita"></div></div>
+                    <div id="cat3">Descubriendo<div id="fle3" class="flechita"></div></div>
+                </div>
+                <div class="barra">A</div>
+                
+                <div style="width:100%">
+                
+                  <div style="width:95%; position:relative; float:left">
+                  <div class="popular">
+                    <div class="popular_imagen"></div>
+                    <div class="popular_texto">
+                        <div style="font-size:24px; color:#ff9a00">Aeromexico</div>		
+                        <div>Comparte tu viaje con aeromexico</div>
+                        <div style="font-size:22px; color:#9a9a9a; line-height:24px; margin-top:10px">Etiam porta sem malesuada magna mollis euismod. Donec id elit non mi porta gravida at eget metus.</div>
+                    </div>
+                    <div class="popular_mas pop"></div>
+                  </div>
+                  
+                  <!--//////////////////////////////////////////////////////-->
+              
+                  <div class="popular">
+                    <div class="popular_imagen"></div>
+                    <div class="popular_texto">
+                        <div style="font-size:24px; color:#ff9a00">Aeromexico</div>		
+                        <div>Comparte tu viaje con aeromexico</div>
+                        <div style="font-size:22px; color:#9a9a9a; line-height:24px; margin-top:10px">Etiam porta sem malesuada magna mollis euismod. Donec id elit non mi porta gravida at eget metus.</div>
+                    </div>
+                    <div class="popular_mas pop"></div>
+                  </div>
+                  
+                  <div class="barra">B</div>
+                  
+                  <!--//////////////////////////////////////////////////////-->
+              
+                  <div class="popular">
+                    <div class="popular_imagen2"></div>
+                    <div class="popular_texto">
+                        <div style="font-size:24px; color:#ff9a00">Aeromexico</div>		
+                        <div>Comparte tu viaje con aeromexico</div>
+                        <div style="font-size:22px; color:#9a9a9a; line-height:24px; margin-top:10px">Etiam porta sem malesuada magna mollis euismod. Donec id elit non mi porta gravida at eget metus.</div>
+                    </div>
+                    <div class="popular_mas pop"></div>
+                  </div>
+                  
+                  <div class="barra">C</div>
+                  
+                  <!--//////////////////////////////////////////////////////-->
+              
+                  <div class="popular">
+                    <div class="popular_imagen2"></div>
+                    <div class="popular_texto">
+                        <div style="font-size:24px; color:#ff9a00">Aeromexico</div>		
+                        <div>Comparte tu viaje con aeromexico</div>
+                        <div style="font-size:22px; color:#9a9a9a; line-height:24px; margin-top:10px">Etiam porta sem malesuada magna mollis euismod. Donec id elit non mi porta gravida at eget metus.</div>
+                    </div>
+                    <div class="popular_mas pop"></div>
+                  </div>
+                  
+                  <div class="barra">D</div>
+                  
+                  <!--//////////////////////////////////////////////////////-->
+              
+                  <div class="popular">
+                    <div class="popular_imagen"></div>
+                    <div class="popular_texto">
+                        <div style="font-size:24px; color:#ff9a00">Aeromexico</div>		
+                        <div>Comparte tu viaje con aeromexico</div>
+                        <div style="font-size:22px; color:#9a9a9a; line-height:24px; margin-top:10px">Etiam porta sem malesuada magna mollis euismod. Donec id elit non mi porta gravida at eget metus.</div>
+                    </div>
+                    <div class="popular_mas pop"></div>
+                  </div>
+                  <div class="barra">E</div>
+                 
+                  </div>
+                  </div>
+                  <div id="letras">A<br>B<br>C<br>D<br>E<br>F<br>G<br>H<br>I<br>J<br>K<br>L<br>M<br>N<br>O<br>P<br>Q<br>R<br>S<br>T<br>U<br>V<br>W<br>X<br>Y<br>Z</div>
+                
+                <script>
+                	$('#cat1').click(function(){
+						$('#fle1').show()
+						$('#fle2').hide()
+						$('#fle3').hide()
+						$('#cat1').css('background-color','#db8a0f')
+						$('#cat2').css('background','none')
+						$('#cat3').css('background','none')
+					})
+					$('#cat2').click(function(){
+						$('#fle2').show()
+						$('#fle1').hide()
+						$('#fle3').hide()
+						$('#cat2').css('background-color','#db8a0f')
+						$('#cat1').css('background','none')
+						$('#cat3').css('background','none')
+					})
+					$('#cat3').click(function(){
+						$('#fle3').show()
+						$('#fle2').hide()
+						$('#fle1').hide()
+						$('#cat3').css('background-color','#db8a0f')
+						$('#cat2').css('background','none')
+						$('#cat1').css('background','none')
+					})
+                </script>
+          </div><!--fin seccion3--> 
+          
+          
+          
+          
+          
+          <div id="seccion4" style="display:none"><!--seccion4-->    
+                <div class="top">
+                  <div class="regresar"></div>
+                  <div class="titulo">Chaz</div>
+                  <div class="logo"></div>
+                </div>
+                
+                <div class="promo_imagen"><img src="imagenes/promo_imagen.png" width="100%"></div>
+   				<div class="barra_iconos">
+                	<div class="logo_promo"><img src="imagenes/logo_promo.png" width="150px" height="150px"></div>
+                    <div class="face"></div>
+                    <div class="twitter"></div>
+                    <div class="mundo"></div>
+                    <div class="telefono"></div>
+                    <div class="maps"></div>
+                </div>
+                <div class="texto_promo">Obtén un 10% de descuento sobre el total de la cuenta pagando con tu tarjeta MasterCard®.</div>
+                <div class="terminos_promo">TERMINOS Y CONDICIONES</div>
+                <div class="agregar">Agregar a mis promociones</div>
+          </div><!--fin seccion4--> 
+          
+          
+          
+          <div id="seccion5" style="display:none;"><!--seccion5-->    
+                <div class="top">
+                  <div class="regresar"></div>
+                  <div class="titulo" style="margin-left:-227px;">Perfil</div>
+                  <div class="logo"></div>
+                </div>
+                
+                <div class="promo_imagen" style="margin-top:98px; height:522px;">
+                	<img src="imagenes/fondo_perfil.jpg" width="100%" height="522" style="position:absolute">
+                    <div id="foto_perfil"></div>
+                    <div id="nombre">Walter W.</div>
+                    <div id="botones_perfil">
+                        <div id="perfil_izquierda"></div>
+                        <div id="perfil_derecha"></div>
+                        <div id="perfil_izquierda_a"></div>
+                        <div id="perfil_derecha_a" style="display:none"></div>
+                        <div id="perfil_izquierda_texto">Mis tarjetas</div>
+                        <div id="perfil_derecha_texto" style="color:#FFF">Mis promociones</div>
+                    </div>
+                </div> 
+                
+                <div id="mis_tarjetas" style="width:100%;"><!--tarjetas-->
+                	<div class="mi_tarjeta">Otra<br><span style="font-size:26px; color:#999">Numero de tarjeta: **** **** **** 0000</span></div>
+                    
+                    <div class="mi_tarjeta">Platinum<br><span style="font-size:26px; color:#999">Numero de tarjeta: **** **** **** 0000</span></div>
+                    <div id="contiene_boton_agregar">
+                    	<div id="boton_agregar_tarjeta">Agregar tarjeta</div>
+                    </div>
+                </div><!--fin tarjetas-->
+                
+                
+                <div id="mis_promociones" style="width:100%; display:none; overflow:hidden"><!--promociones-->
+                	
+                    <div class="popular">
+                    <div class="popular_imagen"></div>
+                    <div class="popular_texto">
+                        <div style="font-size:24px; color:#ff9a00">Aeromexico</div>		
+                        <div>Comparte tu viaje con aeromexico</div>
+                        <div style="font-size:22px; color:#9a9a9a; line-height:24px; margin-top:10px">Etiam porta sem malesuada magna mollis euismod. Donec id elit non mi porta gravida at eget metus.</div>
+                    </div>
+                    <div id="po1" class="popular_mas"></div>
+                    <div id="eliminar1" class="eliminar">Eliminar</div>
+                  </div>
+                  
+                  
+                  
+                  <div class="popular">
+                    <div class="popular_imagen"></div>
+                    <div class="popular_texto">
+                        <div style="font-size:24px; color:#ff9a00">Aeromexico</div>		
+                        <div>Comparte tu viaje con aeromexico</div>
+                        <div style="font-size:22px; color:#9a9a9a; line-height:24px; margin-top:10px">Etiam porta sem malesuada magna mollis euismod. Donec id elit non mi porta gravida at eget metus.</div>
+                    </div>
+                    <div id="po2" class="popular_mas"></div>
+                    <div id="eliminar2" class="eliminar">Eliminar</div>
+                  </div>
+                  
+                  <script>
+                  	$("#po1").click(function(){
+							$(this).hide()
+							$('#eliminar1').show()
+					})
+					$("#po2").click(function(){
+							$(this).hide()
+							$('#eliminar2').show()
+					})
+					$("#eliminar1").click(function(){
+							$(this).hide()
+							$('#po1').show()
+					})
+					$("#eliminar2").click(function(){
+							$(this).hide()
+							$('#po2').show()
+					})
+                  </script>
+   
+                </div> <!--fin promociones-->
+                
+                <script>
+                	$('#perfil_derecha_texto').click(function(){
+						$('#perfil_derecha_a').show()
+						$('#perfil_izquierda_a').hide()
+						$('#perfil_derecha_texto').css('color','#424242')
+						$('#perfil_izquierda_texto').css('color','#fff')
+						$('#mis_tarjetas').hide()
+						$('#mis_promociones').show()
+					})
+					$('#perfil_izquierda_texto').click(function(){
+						$('#perfil_derecha_a').hide()
+						$('#perfil_izquierda_a').show()
+						$('#perfil_derecha_texto').css('color','#fff')
+						$('#perfil_izquierda_texto').css('color','#424242')
+						$('#mis_tarjetas').show()
+						$('#mis_promociones').hide()
+					})
+                </script>
+                
+                 
+          </div><!--fin seccion5--> 
+          
+          
+          
+          
+          
+          <div id="menu_completo" style="display:none">
+          	<div id="buscar"><input name="" type="text" class="campo_buscar"></div>
+            
+            <div id="perfil">MI PERFIL</div>
+            <div id="tarjetas">MIS TARJETAS</div>
+                <div class="tarjetas">Platinum</div>
+                <div class="tarjetas">Otras</div>
+            <div id="agregar_tarjeta">Agregar tarjeta</div>
+            <div id="promociones">PROMOCIONES</div>
+            <div id="categorias">CATEGORÍAS</div>
+                <div class="cat_cat">Entretenimiento</div>
+                <div class="cat_cat">Restaurantes</div>
+            	<div class="cat_cat">Salud</div>
+          </div>
+          
+          
+          
+          <!--//////////////////////////////////////////////////////-->
+          
+         
+          
+          
+      	</div><!--fin aplicacion-->
+        
+        
+        
+        
+        <script>
+		
+		var menu = 0
+		var regresa = 0
+			$(".menu").click(function(){
+				if(menu==0){
+					$("#menu_completo").show()
+					$(".menu").css('float','right')
+					$(".menu").css('margin-right','40px')
+					$(".logo").hide()
+					$(".titulo").hide()
+					menu=1
+				}else if(menu==1){
+					$("#menu_completo").hide()
+					$(".menu").css('float','left')
+					$(".menu").css('margin-left','40px')
+					$(".logo").show()
+					$(".titulo").show()
+					$(".titulo").css('margin-left','-320px')
+					menu=0
+
+				}
+			});
+			
+			
+			
+			
+			$('#perfil, #tarjetas, #agregar_tarjeta').click(function(){
+					scrollWinTop()
+					$("#menu_completo").hide()
+					$(".menu").css('float','left')
+					$(".menu").css('margin-left','40px')
+					$(".logo").show()
+					$(".titulo").show()
+					$(".titulo").css('margin-left','-230px')
+					menu=0
+					$("#seccion2").hide()
+					$("#seccion3").hide()
+					$("#seccion4").hide()
+					$("#seccion5").show()
+						$('#perfil_derecha_a').hide()
+						$('#perfil_izquierda_a').show()
+						$('#perfil_derecha_texto').css('color','#fff')
+						$('#perfil_izquierda_texto').css('color','#424242')
+						$('#mis_tarjetas').show()
+						$('#mis_promociones').hide()
+			});
+			
+			$('#promociones').click(function(){
+					scrollWinTop()
+					regresa=2
+					$("#menu_completo").hide()
+					$(".menu").css('float','left')
+					$(".menu").css('margin-left','40px')
+					$(".logo").show()
+					$(".titulo").show()
+					$(".titulo").css('margin-left','-320px')
+					menu=0
+					$("#seccion2").show()
+					$("#seccion3").hide()
+					$("#seccion4").hide()
+					$("#seccion5").hide()
+					initialize();	
+			});
+			$('#categorias').click(function(){
+					scrollWinTop()
+					regresa=3
+					$("#menu_completo").hide()
+					$(".menu").css('float','left')
+					$(".menu").css('margin-left','40px')
+					$(".logo").show()
+					$(".titulo").show()
+					$(".titulo").css('margin-left','-320px')
+					menu=0
+					$("#seccion2").hide()
+					$("#seccion3").show()
+					$("#seccion4").hide()
+					$("#seccion5").hide()
+					initialize2();	
+			});
+			
+			
+			
+			$("#digitos_boton, #boton_notengo").click(function(){
+				scrollWinTop()
+				regresa=2
+				$("#seccion1").hide()
+				$("#seccion2").show()
+				$("#aplicacion").css('width','100%')
+				$("#contiene_aplicacion").css('width','100%')
+				initialize();
+			});
+			
+			$("#ver_todas").click(function(){
+				scrollWinTop()
+				regresa=3
+				$("#seccion2").hide()
+				$("#seccion3").show()
+				initialize2();
+			})
+			
+			
+			$(".popular_imagen, .popular_texto, .pop").click(function(){
+				scrollWinTop()
+				$("#seccion2").hide()
+				$("#seccion3").hide()
+				$("#seccion4").show()
+				initialize2();
+			})
+			
+			
+			
+			$(".agregar").click(function(){
+				scrollWinTop()
+				regresa=4
+				$("#seccion2").hide()
+				$("#seccion3").hide()
+				$("#seccion4").hide()
+				$("#seccion5").show()
+				
+				$('#perfil_derecha_a').show()
+				$('#perfil_izquierda_a').hide()
+				$('#perfil_derecha_texto').css('color','#424242')
+				$('#perfil_izquierda_texto').css('color','#fff')
+				$('#mis_tarjetas').hide()
+				$('#mis_promociones').show()
+			})
+			
+			$(".regresar").click(function(){
+				scrollWinTop()
+				$("#seccion2").hide()
+				$("#seccion3").hide()
+				$("#seccion4").hide()
+				$("#seccion5").hide()
+				$(".titulo").css('margin-left','-320px')
+				if(regresa==2){
+					$("#seccion2").show()
+					initialize();
+				}else if(regresa==3){
+					$("#seccion3").show()
+					initialize2();
+				}else if(regresa==4){
+					$("#seccion4").show()
+					regresa=2
+				}	
+			})
+			
+			
+			
+			
+        	$("#op1").click(function(){
+				$("#linea").animate({left: "50%", marginLeft:"-265px", width:"130px"}, 800 );
+			})
+			$("#op2").click(function(){
+				$("#linea").animate({left: "50%", marginLeft:"-86px", width:"170px"}, 800 );
+			})
+			$("#op3").click(function(){
+				$("#linea").animate({left: "50%", marginLeft:"158px", width:"88px"}, 800 );
+			})
+			
+			
+			function scrollWinTop() {
+				$('html,body').animate({
+					scrollTop: 0
+				}, 0);
+			}
+        </script>
+      
+  	</div>
+  
+
+
+
+</body>
+</html>

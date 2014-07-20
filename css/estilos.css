@@ -1,0 +1,166 @@
+@charset "utf-8";
+@font-face {
+	font-family: 'avenir';
+	src: url('../fonts/avenir.eot?') format('eot'), 
+	     url('../fonts/avenir.otf')  format('opentype'),
+	     url('../fonts/avenir.woff') format('woff'), 
+	     url('../fonts/avenir.ttf')  format('truetype'),
+	     url('../fonts/avenir.svg#avenir') format('svg');
+}
+
+.uno{
+	font-family:'avenir', Arial;
+	background: url(../imagenes/fondo.jpg) no-repeat; 
+	background-size: 100% 1136px;
+	height:1136px;
+}
+.textos{
+	text-align:center;
+	color:#FFF;
+	font-size:34px;
+	position:absolute
+}
+#contenedor{
+	background: url(../imagenes/fondo.jpg) no-repeat; 
+	width: 100%; 
+	height: 1136px; 
+	background-size: 100% 1136px;
+}
+#contiene_aplicacion {
+	width:640px;
+	height:1136px;
+	margin:auto;
+}
+#aplicacion {
+	width:638px;
+	height:1134px;
+	border:1px solid #000;
+	position:relative
+}
+
+#camara {
+	width:134px;
+	height:134px;
+	background: url(../imagenes/camara.png);
+	position:absolute;
+	top:250px;
+	left:50%;
+	margin-left:-67px;
+	cursor:pointer
+}
+
+#digitos {
+	width:600px;
+	height:90px;
+	position:absolute;
+	top: 789px;
+	left: 50%;
+	margin-left:-300px
+}
+#digitos_campo {
+	width:455px;
+	height:90px;
+	background-color:#FFF;
+	position:relative;
+	float:left;
+}
+.campo_digitos {
+	width:415px;
+	height:90px;
+	position:absolute;
+	top:0px;
+	left:0px;
+	border:none;
+	background:none;
+	font-family:'avenir', Arial;
+	font-size:50px;
+	color:#CCC;
+	padding-left:20px;
+	padding-right:20px;
+}
+#digitos_boton {
+	width:145px;
+	height:90px;
+	background-color:#ff0000;
+	position:relative;
+	float:left;
+	cursor:pointer;
+	color:#FFF;
+	line-height:90px;
+	text-align:center;
+	font-size:34px
+}
+
+
+.op {
+	width:200px;
+	position:absolute;
+	color:#424242;
+	font-size:36px;
+	text-align:center;
+	left: 36px;
+	top: 709px;
+	cursor:pointer
+}
+
+#boton_notengo {
+	width:600px;
+	height:90px;
+	position:absolute;
+	top: 921px;
+	left: 50%;
+	margin-left:-300px;
+	background-color:#ff9a00;
+	cursor:pointer;
+	color:#FFF;
+	line-height:90px;
+	text-align:center;
+	font-size:34px
+}
+#linea {
+	width:130px;
+	height:4px;
+	position:absolute;
+	background-color:#ff9a00;
+	top: 758px;
+	left: 50%;
+	margin-left:-285px;
+}
+
+.menu{
+	width:46px;
+	height:33px;
+	background-image:url(../imagenes/menu.png);
+	left:20px;
+	margin-top:20px;
+	margin-bottom:20px;
+	position:relative;
+	float:left
+}
+.titulo{
+	width:300px;
+	height:33px;
+	left:50%;
+	margin-top:20px;
+	margin-bottom:20px;
+	margin-left:-200px;
+	font-size:34px;
+	line-height:34px;
+	position:relative;
+	float:left;
+	text-align:center
+}
+.logo{
+	width:69px;
+	height:41px;
+	background-image:url(../imagenes/logo.png);
+	margin-top:15px;
+	margin-bottom:15px;
+	position:relative;
+	float:right;
+	right:20px;
+}
+#mapa{
+	width:100%;
+	height:500px;
+}
